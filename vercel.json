@@ -1,0 +1,31 @@
+{
+    "name": "ProfileBuilder",
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "build/**",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/v1/post",
+        "dest": "index.js"
+      },
+      {
+        "src": "/api/v1/dalle",
+        "dest": "index.js"
+      },
+      {
+        "src": "/",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/(.+)",
+        "dest": "build/$1"
+      }
+    ]
+  }
