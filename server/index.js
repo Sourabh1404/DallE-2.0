@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/api/v1/post', postRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
-
+app.use(express.static('build'))
 app.get('/', async (req, res) => {
   res.status(200).json({
     message: 'Hello from DALL.E!',
